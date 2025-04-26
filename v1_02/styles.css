@@ -1,0 +1,345 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0 auto;
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+.chart {
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+
+.metric-label {
+    position: absolute;
+    font-weight: bold;
+    color: inherit;
+    font-size: 14px;
+    white-space: nowrap;
+    cursor: move;
+}
+
+.metric-textarea {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    padding: 6px;
+    font-size: 11px;
+    resize: both;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    cursor: text;
+    overflow: auto;
+}
+
+.metric-textarea:hover {
+    border-color: inherit;
+}
+
+.metric-textarea:focus {
+    outline: none;
+    border-color: inherit;
+}
+
+.metric-textarea::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 1px dashed transparent;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.metric-textarea.dragging {
+    border-color: inherit;
+    cursor: move;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+.metric-textarea.dragging::before {
+    border-color: inherit;
+}
+
+.description-panel {
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    min-height: 80px;
+    font-size: 0.9em;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.metric-input {
+    margin-bottom: 0;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.metric-input label {
+    margin-bottom: 5px;
+}
+
+.metric-input textarea {
+    height: 40px;
+    min-height: 40px;
+    margin-bottom: 0;
+}
+
+.range-control {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="range"] {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+input[type="number"] {
+    width: 50px;
+    padding: 3px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 3px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9em;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 6px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 0.9em;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    display: block;
+    margin: 10px auto;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#item-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.nodeco {
+    text-decoration: none;
+    color: inherit;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+.nodeco:hover {
+    color: #4CAF50;
+}
+
+@media (min-width: 1024px) {
+    .metric-input {
+        width: 15%;
+        min-width: 200px;
+    }
+}
+
+.project-info {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 0.8em;
+    margin: 0 auto;
+}
+
+.info-column {
+    flex: 1;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.info-column:first-child {
+    flex: 0 0 37%;
+}
+
+.info-column:nth-child(2) {
+    flex: 0 0 37%;
+}
+
+.info-column:last-child {
+    flex: 0 0 20%;
+    min-width: 120px;
+    gap: 2px;
+}
+
+.info-input {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-input.textarea-input {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.info-input.textarea-input label {
+    margin-bottom: 2px;
+}
+
+.info-input label {
+    min-width: 80px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.7em;
+    white-space: nowrap;
+}
+
+.info-input input {
+    flex: 1;
+    padding: 4px 6px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+    font-size: 0.7em;
+}
+
+.info-input textarea {
+    width: 100%;
+    min-height: 60px;
+    padding: 4px 6px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    resize: vertical;
+    font-size: 0.8em;
+    font-family: inherit;
+}
+
+.save-load-buttons {
+    display: block;
+}
+
+.save-load-buttons button {
+    padding: 2px 8px;
+    font-size: 0.8em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 100%;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.save-load-buttons button:first-child {
+    margin-bottom: 4px;
+}
+
+.save-load-buttons button:hover {
+    background-color: #45a049;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.8em;
+    color: #666;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+
+.emoji-button {
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0 10px;
+    transition: transform 0.2s;
+}
+
+.emoji-button:hover {
+    transform: scale(1.2);
+}
+
+.emoji-button:active {
+    transform: scale(0.9);
+}

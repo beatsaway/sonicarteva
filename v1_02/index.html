@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Evaluation Radar Chart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="project-info">
+            <div class="info-column">
+                <div class="info-input">
+                    <label for="projectTitle">Project Title:</label>
+                    <input type="text" id="projectTitle" placeholder="Enter project title" oninput="updateChart()">
+                </div>
+                <div class="info-input">
+                    <label for="artistName">Artist Name:</label>
+                    <input type="text" id="artistName" placeholder="Enter artist name" oninput="updateChart()">
+                </div>
+                <div class="info-input">
+                    <label for="targetAudience">Target Audience:</label>
+                    <input type="text" id="targetAudience" placeholder="e.g., Teenagers, Adults, Children" oninput="updateChart()">
+                </div>
+                <div class="info-input">
+                    <label for="context">Context:</label>
+                    <input type="text" id="context" placeholder="e.g., Background Music, Film Score, Concert Piece" oninput="updateChart()">
+                </div>
+            </div>
+            <div class="info-column">
+                <div class="info-input textarea-input">
+                    <label for="objective">Objectives & Concepts:</label>
+                    <textarea id="objective" placeholder="Explain how you plan to achieve your objectives and implement your concepts..." oninput="updateChart()"></textarea>
+                </div>
+            </div>
+            <div class="info-column">
+                <div class="save-load-buttons">
+                    <span onclick="saveState()" class="emoji-button" title="Save evaluation">💾</span>
+                    <span onclick="loadState()" class="emoji-button" title="Load evaluation">📁</span>
+                    <span onclick="resetPositions()" class="emoji-button" title="Reset metric positions">🔄</span>
+                </div>
+                <div class="footer-content">
+                    <a href='https://www.youtube.com/@tortorkeneducation' class="nodeco">
+                        🐢 Tortorken Education ©2025
+                    </a>
+                    <a href='https://buymeacoffee.com/beatsaway' class="nodeco">☕Buy Me a Coffee</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<br><br>
+    <div class="chart-row">
+        <div class="chart-container">
+            <div id="radar-chart" class="chart"></div>
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
